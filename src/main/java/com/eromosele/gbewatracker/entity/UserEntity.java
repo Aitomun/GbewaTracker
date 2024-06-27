@@ -9,6 +9,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import jakarta.validation.constraints.NotBlank;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -48,6 +49,9 @@ import java.util.List;
         private Role role;
 
         private Boolean enabled = false;
+        
+        @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+        private List<TaskEntity> tasks = new ArrayList<>();
 
 
 
